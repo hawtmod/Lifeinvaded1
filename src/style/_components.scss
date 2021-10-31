@@ -1,0 +1,710 @@
+.btn {
+  display: block;
+  padding: 14px;
+  margin-bottom: 2rem;
+  max-width: 38rem;
+
+  border: 1px solid $color-blue;
+  border-radius: 50px;
+  background-color: transparent;
+  color: $color-blue;
+
+  font-weight: 700;
+  font-size: 1.4rem;
+
+  cursor: pointer;
+
+  @media (max-width: 500px) {
+    padding: 10px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &-fill {
+    background-color: $color-blue;
+    color: $color-text;
+  }
+  &-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+// input for sign in details
+.input__sign-in {
+  display: block;
+  padding: 14px 22px;
+  margin-bottom: 2rem;
+  max-width: 38rem;
+
+  border: 1px solid $color-blue;
+  border-radius: 50px;
+  background-color: transparent;
+  color: $color-blue;
+
+  font-weight: 700;
+  font-size: 1.4rem;
+
+  @media (max-width: 500px) {
+    padding: 10px;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: rgba($color-blue, 0.15);
+  }
+}
+
+// stop the input bg-colour change on autofill
+// the rgb colour is the same as rgba($color-blue, 0.15), but
+// you cant have transperent colours, so this is the absoloute
+// colour of that transperent colour
+
+.input__sign-in:-webkit-autofill:hover,
+.input__sign-in:-webkit-autofill:focus,
+.input__sign-in:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgb(8, 28, 40) inset !important;
+}
+
+// this changes the background colour back to normal after no longer focusing an auto filled field
+.input__sign-in:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px $color-background inset !important;
+}
+
+// stop the input text colour change on autofil
+.input__sign-in:-webkit-autofill {
+  -webkit-text-fill-color: $color-blue !important;
+  caret-color: $color-blue !important;
+
+  &::first-line {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+  }
+}
+
+// input placeholder colour
+.input__sign-in::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba($color-blue, 0.6);
+}
+.input__sign-in::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba($color-blue, 0.6);
+}
+.input__sign-in:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba($color-blue, 0.6);
+}
+.input__sign-in:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba($color-blue, 0.6);
+}
+
+// post form #####################################
+
+.post-form-container {
+  display: flex;
+  // border-bottom: 1px solid $color-background-light;
+  flex-shrink: 0;
+  padding-bottom: 20px;
+}
+
+.user-image-container {
+  width: 50px;
+  height: 50px;
+
+  @media (max-width: 450px) {
+    width: 35px;
+    height: 35px;
+  }
+
+  & img {
+    width: 100%;
+    border-radius: 50%;
+    background-color: $color-background-medium;
+  }
+}
+
+.textarea-container {
+  flex: 1;
+  padding-left: 20px;
+
+  & textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    font-size: 19px;
+    font-family: inherit;
+    background-color: transparent;
+    color: inherit;
+    min-height: 60px;
+    margin-bottom: 20px;
+
+    @media (max-width: 450px) {
+      font-size: 16px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+// text area
+
+textarea {
+  white-space: pre-wrap;
+}
+
+textarea::-webkit-input-placeholder {
+  color: $color-text-grey;
+}
+
+textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: $color-text-grey;
+}
+
+textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $color-text-grey;
+}
+
+textarea:-ms-input-placeholder {
+  color: $color-text-grey;
+}
+
+textarea::placeholder {
+  color: $color-text-grey;
+}
+
+#submit-post-button {
+  background-color: $color-blue;
+  color: inherit;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:disabled {
+    // background-color: $color-blue-light;
+    cursor: not-allowed;
+  }
+}
+// #############################################
+// post item
+// #############################################
+.post {
+  display: flex;
+  font-size: 16px;
+  flex-direction: column;
+  padding: 20px 0;
+  cursor: pointer;
+  border-top: 1px solid $color-background-light;
+  flex-shrink: 0;
+
+  &-header {
+    margin-bottom: 10px;
+    display: flex;
+  }
+
+  &-body {
+    margin-bottom: 10px;
+    word-break: break-all;
+    position: relative;
+    line-height: 1.2em;
+
+    &-truncated {
+      // max-height: 80px;
+      max-height: 4.8em;
+      line-height: 1.2em;
+      overflow: hidden;
+    }
+  }
+}
+
+.delete-post-btn {
+  color: $color-text-grey;
+  margin-left: auto;
+
+  &:hover {
+    color: rgb(226, 34, 94);
+  }
+}
+
+.main-content-container {
+  flex: 1;
+  display: flex;
+}
+
+.post-content-container {
+  padding-left: 20px;
+  flex-direction: column;
+  flex: 1;
+}
+
+.username {
+  color: $color-text-grey;
+  margin-left: 10px;
+}
+
+.post-header .username {
+  @media (max-width: 780px) {
+    display: none;
+  }
+}
+
+.post-header,
+.post-body {
+  @media (max-width: 450px) {
+    font-size: 14px !important;
+  }
+}
+
+.date {
+  color: $color-text-grey;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+// styling the react router link
+.display-name {
+  font-weight: 700;
+
+  & a {
+    color: $color-text;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-footer {
+  display: flex;
+  align-items: center;
+
+  & .post-button-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    & button {
+      padding: 0 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: $color-text-grey;
+      cursor: pointer;
+    }
+  }
+}
+
+.post-button-container {
+  & button:hover {
+    // background-color: #d4edff;
+    color: $color-blue;
+  }
+
+  &-share {
+    & button:hover {
+      color: rgb(22, 191, 99);
+    }
+  }
+
+  &-dislike {
+    & button:hover {
+      color: rgb(226, 34, 94);
+    }
+  }
+}
+
+.shared-by-heading {
+  margin-left: 69px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: $color-text-grey;
+
+  @media (max-width: 450px) {
+    margin-left: 54px;
+  }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+// react modal ##################################################
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+// these styles just align the modal with the main content on full screen,
+// since it looks weird when they are only 24 px apart
+.ReactModal__Content--after-open {
+  transform: translateX(-24px) translateY(-50%);
+  max-height: calc(100vh - 20px);
+  overflow-y: scroll;
+
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  @media (max-width: 1430px) {
+    transform: translateY(-50%);
+  }
+}
+
+.ReactModal__Content {
+  transform: translateX(-24px) translateY(-50%);
+  max-height: calc(100vh - 20px);
+  overflow-y: scroll;
+
+  @media (max-width: 1430px) {
+    transform: translateY(-50%);
+  }
+
+  @media (max-width: 450px) {
+    padding: 10px !important;
+  }
+}
+
+.custom-scroll {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
+.custom-scroll::-webkit-scrollbar {
+  width: 0px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.close-modal-icon-wrapper {
+  & svg:hover {
+    color: rgb(226, 34, 94);
+  }
+}
+
+// buttons in delete modal
+.modal-delete-btn {
+  background-color: $color-blue;
+  height: 32px;
+  color: inherit;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+// user preview component
+.user-preview {
+  padding: 20px 0;
+  display: flex;
+  border-top: 1px solid $color-background-light;
+  font-size: 16px;
+
+  & a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+
+  & .user-details-container {
+    flex: 1;
+    padding: 0 20px;
+
+    @media (max-width: 450px) {
+      font-size: 14px;
+    }
+  }
+}
+
+// follow btn in user preview
+
+.follow-btn {
+  color: $color-blue;
+  border: 1px solid $color-blue;
+  background-color: $color-background-medium;
+  margin-left: 20px;
+  font-size: 20px;
+  padding: 8px 15px;
+  border-radius: 100px;
+  height: 37px;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background-color: $color-blue;
+    color: $color-background-medium;
+  }
+
+  &.following {
+    background-color: $color-blue;
+    color: $color-background-medium;
+  }
+}
+
+// // file upload button
+// input#file-upload-button {
+//   font-size: 20px;
+// }
+
+input[type='file'] {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+
+  &::file-selector-button {
+    border: 1px solid $color-blue;
+    color: $color-blue;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background-color: transparent;
+    outline: none;
+    margin-right: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+      color: $color-background-medium;
+      background-color: $color-blue;
+    }
+  }
+
+  &::-webkit-file-upload-button {
+    border: 1px solid $color-blue;
+    color: $color-blue;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background-color: transparent;
+    outline: none;
+    margin-right: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+      color: $color-background-medium;
+      background-color: $color-blue;
+    }
+  }
+}
+
+// container around cropper
+
+.cropper {
+  position: relative;
+  height: 391px;
+  border-radius: 15px;
+  overflow: hidden;
+
+  @media (max-width: 500px) {
+    height: 331px;
+  }
+}
+
+// submit btn for image
+
+.image-submit-btn {
+  display: block;
+  margin-top: 20px;
+  border: 1px solid $color-blue;
+  color: $color-background-medium;
+  background-color: $color-blue;
+  padding: 8px 14px;
+  border-radius: 50px;
+
+  outline: none;
+
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.crop-instructions {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+// edit description area on profile page
+
+.edit-btn {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid $color-blue;
+  border-radius: 100px;
+  color: $color-blue;
+  padding: 8px 16px;
+
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    color: $color-background-medium;
+    background-color: $color-blue;
+  }
+
+  &-container {
+    margin-top: 10px;
+  }
+}
+
+#profile-desc {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.edit-label {
+  color: $color-text-grey;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+#edit-description-textarea {
+  font-size: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  border: none;
+  resize: none;
+  font-family: inherit;
+  background-color: transparent;
+  color: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// notification popup
+.notification-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  height: 80px;
+  width: 350px;
+  background-color: rgb(33, 36, 40);
+  border: 1px solid $color-background-light;
+  border: none;
+  border-left: 4px solid $color-blue;
+  border-radius: 3px;
+  transition: all 0.4s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+
+  // opacity: 0;
+
+  &:hover {
+    background-color: rgb(33, 36, 40);
+  }
+
+  &.fade-in {
+    opacity: 1;
+  }
+}
+
+// chat notification text
+
+.subtext-notification {
+  font-size: 16px !important;
+  color: white !important;
+}
+
+// react notification popup
+
+#notification-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 300px;
+  height: 100px;
+  border: 1px solid red;
+}
+
+.notification-item-popup {
+  position: fixed;
+  bottom: -30px;
+  left: 30px;
+  background-color: rgb(33, 36, 40);
+  border-top: none;
+  padding-right: 20px;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+
+  max-width: 400px;
+
+  opacity: 0;
+  transition: all 0.4s;
+
+  @media (max-width: 550px) {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgb(33, 36, 40);
+  }
+
+  &-fade {
+    opacity: 1;
+    bottom: 30px;
+  }
+}
+
+.user-preview {
+  & .follow-btn {
+    @media (max-width: 450px) {
+      margin-left: 0;
+    }
+  }
+}

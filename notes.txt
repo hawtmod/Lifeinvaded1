@@ -1,0 +1,23 @@
+
+
+
+
+
+// features
+
+- fully mobile responsive
+- client and server side validation
+- seperate rest api
+- admin can delete any post
+- store
+- collapseable posts
+- create,delete, comment on, share and like posts
+- pin posts to top of profile page
+- infinite scroll 
+
+
+
+
+killall -9 node
+
+

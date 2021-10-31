@@ -1,0 +1,259 @@
+// variables specific to the main layout
+$padding-lrg: 50px;
+$padding-med: 35px;
+$padding-sml: 20px;
+
+$nav-height: 60px;
+$nav-height-sml: 50px;
+
+$left-sidebar-width: 275px;
+$left-sidebar-width-small: 100px;
+
+$main-content-width: 600px;
+
+$right-sidebar-width: 325px;
+$right-sidebar-width-sml: 250px;
+
+// top nav bar
+// is hidden until mobile view
+.navbar {
+  width: 100%;
+  height: $nav-height;
+
+  background-color: $color-background-medium;
+  position: fixed;
+  bottom: 0;
+  display: none !important;
+
+  // show nav at top
+  @media (max-width: 780px) {
+    display: flex !important;
+  }
+
+  @media (max-width: 450px) {
+    height: $nav-height-sml;
+  }
+}
+
+// wrapper around entire content - excluding top nav
+.main-wrapper {
+  padding: $padding-lrg;
+
+  @media (max-width: 1300px) {
+    padding: $padding-med;
+  }
+
+  @media (max-width: 850px) {
+    padding: $padding-sml;
+  }
+
+  @media (max-width: 500px) {
+    padding: 10px;
+  }
+}
+
+// grid encompassing the 3 columns
+.layout {
+  display: grid;
+  grid-template-columns: $left-sidebar-width $main-content-width $right-sidebar-width;
+  column-gap: $padding-lrg;
+  margin: 0 auto;
+
+  width: fit-content;
+  max-width: 100%;
+
+  // reduce size of first column
+  @media (max-width: 1430px) {
+    grid-template-columns: $left-sidebar-width-small $main-content-width $right-sidebar-width;
+  }
+
+  // reduce grid gap
+  @media (max-width: 1300px) {
+    column-gap: $padding-med;
+  }
+
+  // reduce size of third column
+  @media (max-width: 1200px) {
+    grid-template-columns: $left-sidebar-width-small $main-content-width $right-sidebar-width-sml;
+  }
+
+  // remove third column
+  @media (max-width: 1120px) {
+    grid-template-columns: $left-sidebar-width-small $main-content-width;
+  }
+
+  // reduce grid gap
+  @media (max-width: 850px) {
+    column-gap: $padding-sml;
+  }
+
+  // remove first column
+  @media (max-width: 780px) {
+    grid-template-columns: $main-content-width;
+  }
+
+  // make room for new top nav
+  @media (max-width: 780px) {
+    margin-bottom: $nav-height;
+  }
+
+  // make width 100% of whatever current screen width
+  @media (max-width: 660px) {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 450px) {
+    margin-bottom: $nav-height-sml;
+  }
+}
+
+// sidebar. suggested freinds etc
+.layout__right-sidebar {
+  position: fixed;
+  width: $right-sidebar-width;
+
+  background-color: $color-background-medium;
+  border-radius: 15px;
+  padding: $padding-sml;
+
+  max-height: calc(100vh - 100px);
+  // height: 400px;
+
+  overflow-y: auto;
+
+  // reduce max height to match page padding
+  @media (max-width: 1300px) {
+    max-height: calc(100vh - 70px);
+  }
+
+  // reduce size of first column
+  @media (max-width: 1200px) {
+    width: $right-sidebar-width-sml;
+  }
+
+  // remove third column
+  @media (max-width: 1120px) {
+    display: none;
+  }
+}
+
+// sidebar. navigation
+.layout__left {
+  &-container {
+    // height: 400px;
+
+    // remove first column
+    @media (max-width: 780px) {
+      display: none;
+    }
+  }
+
+  &-content {
+    background-color: $color-background-medium;
+    position: fixed;
+    width: $left-sidebar-width;
+    height: fit-content;
+    border-radius: 15px;
+    padding: $padding-sml;
+    display: flex;
+    flex-direction: column;
+
+    max-height: calc(100vh - 100px);
+
+    overflow-y: auto;
+
+    // reduce max height to match page padding
+    @media (max-width: 1300px) {
+      max-height: calc(100vh - 70px);
+    }
+
+    // reduce max height to match page padding
+    @media (max-width: 850px) {
+      max-height: calc(100vh - 40px);
+    }
+
+    // reduce size of first column
+    @media (max-width: 1430px) {
+      width: $left-sidebar-width-small;
+      align-items: center;
+    }
+
+    // remove first column
+    @media (max-width: 780px) {
+      display: none;
+    }
+  }
+}
+
+// middle column. feed / profile area
+.layout__main {
+  background-color: $color-background-medium;
+  border-radius: 15px;
+  padding: $padding-sml;
+
+  max-width: 100%;
+
+  @media (max-width: 450px) {
+    padding: 10px;
+  }
+
+  // make min height take up 100 vh - 2 * page padding,
+  //  then - nav height too in mobile view
+  min-height: calc(100vh - (2 * 50px));
+
+  @media (max-width: 1300px) {
+    min-height: calc(100vh - (2 * 35px));
+  }
+
+  @media (max-width: 850px) {
+    min-height: calc(100vh - (2 * 20px));
+  }
+
+  @media (max-width: 780px) {
+    min-height: calc(100vh - (2 * 20px) - 60px);
+  }
+
+  @media (max-width: 500px) {
+    min-height: calc(100vh - (2 * 10px) - 60px);
+  }
+
+  @media (max-width: 450px) {
+    min-height: calc(100vh - (2 * 10px) - 50px);
+  }
+}
+
+// fixed post position button that only appears on mobile
+.mobile-post-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none !important;
+
+  @media (max-width: 780px) {
+    display: flex !important;
+  }
+}
+
+// body scroll bars
+
+/* Works on Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: $color-background-medium transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $color-background-light;
+  border-radius: 20px;
+  border: 3px solid transparent;
+}
